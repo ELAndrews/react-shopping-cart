@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 
 // Components
 import Item from "./ShoppingCartItem";
-import cartContext from "../contexts/cartContext";
+import CartContext from "../contexts/CartContext";
 
 const ShoppingCart = () => {
-  const cart = useContext(cartContext);
+  const cart = useContext(CartContext);
+
   const getCartTotal = () => {
     return cart
       .reduce((acc, value) => {
@@ -13,10 +14,13 @@ const ShoppingCart = () => {
       }, 0)
       .toFixed(2);
   };
+  console.log(cart);
 
   return (
     <div className="shopping-cart">
       {cart.map(item => (
+        // console.log(item)
+
         <Item key={item.id} {...item} />
       ))}
 
