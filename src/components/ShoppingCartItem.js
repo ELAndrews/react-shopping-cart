@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import CartContext from "../contexts/CartContext";
+import React from "react";
 
 const Item = props => {
   return (
@@ -9,7 +8,9 @@ const Item = props => {
       <div>
         <h1>{props.title}</h1>
         <p>$ {props.price}</p>
-        <button>Remove from cart</button>
+        <button onClick={() => props.removeItem(props)}>
+          Remove from cart
+        </button>
       </div>
     </div>
   );
